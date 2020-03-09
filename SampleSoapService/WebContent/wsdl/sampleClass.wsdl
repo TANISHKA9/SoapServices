@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="method1">
+    <complexType/>
+   </element>
+   <element name="method1Response">
+    <complexType>
+     <sequence>
+      <element name="method1Return" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="interactMethod">
+    <complexType>
+     <sequence>
+      <element name="abc" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="interactMethodResponse">
+    <complexType>
+     <sequence>
+      <element name="interactMethodReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="interactMethodRequest">
+
+      <wsdl:part element="impl:interactMethod" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="interactMethodResponse">
+
+      <wsdl:part element="impl:interactMethodResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="method1Request">
+
+      <wsdl:part element="impl:method1" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="method1Response">
+
+      <wsdl:part element="impl:method1Response" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="sampleClass">
+
+      <wsdl:operation name="method1">
+
+         <wsdl:input message="impl:method1Request" name="method1Request">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:method1Response" name="method1Response">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="interactMethod">
+
+         <wsdl:input message="impl:interactMethodRequest" name="interactMethodRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:interactMethodResponse" name="interactMethodResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="sampleClassSoapBinding" type="impl:sampleClass">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="method1">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="method1Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="method1Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="interactMethod">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="interactMethodRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="interactMethodResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="sampleClassService">
+
+      <wsdl:port binding="impl:sampleClassSoapBinding" name="sampleClass">
+
+         <wsdlsoap:address location="http://localhost:8080/SampleSoapService/services/sampleClass"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
